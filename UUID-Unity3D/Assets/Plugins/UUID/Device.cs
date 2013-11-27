@@ -7,8 +7,10 @@ public class Device
 	public static string UUID
 	{
 		get{
+# if  UNITY_EDITOR
+			return SystemInfo.deviceUniqueIdentifier;
 
-#if UNITY_IPHONE
+#elif UNITY_IPHONE
 			return IOSUUID.GetDeviceUUID();
 #else
 			return SystemInfo.deviceUniqueIdentifier;
